@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>492</string>
+	<key>AMApplicationVersion</key>
+	<string>2.10</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>Run AppleScript</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>on run {input, parameters}	-- Filename format change: (HFid)_(title) by (artist) to (artist)-(HFid)-(title)		-- Characters changed:	-- ¡ to !	-- ; to -	-- / to _	-- _ between artist &amp; title fixed	-- ¦ (originally |) to -	-- DO NOT CHANGE ¿ to ?, Windows does not support question marks in filenames	-- any of ❤️🧡💛💚💙💜🖤🤍🤎💓💗♥️ to ♡ (Windows and macOS support, but Dropbox doesn't)	-- 🖤 to ♥︎	-- ♠️ to ♠︎	-- ♣️ to ♣︎	-- ♦️ to ♦︎	--  NOT IMPLEMENTED: - to (space)	--  NOT IMPLEMENTED: " s" to "'s"		try		repeat with i from 1 to count of input			set this_item to item i of input			set some_file to (this_item as alias)						tell application "Finder"				set some_filename to name of some_file								set split1 to my splitText(some_filename, "_") -- Split words apart by "_"								if (count of split1) = 2 then -- i.e. if filename is standard format										set nameList to (first item of split1) as list					set split2 to my splitText(item 2 of split1, " by ")					if (count of split2) &gt; 2 then						set namecount to (count of split2) - 1						set AppleScript's text item delimiters to " by "						set Title to (items 1 thru namecount of split2) as string						set nameList to nameList &amp; Title						set AppleScript's text item delimiters to ""					else						set nameList to nameList &amp; first item of split2					end if					set split3 to my splitText(last item of split2, ".")					set namecount to (count of result) - 1					set nameList to nameList &amp; items 1 thru namecount of split3										set newFilename to (item 3 of nameList &amp; "-" &amp; item 1 of nameList &amp; "-" &amp; item 2 of nameList &amp; "." &amp; name extension of some_file) as string									else if (count of split1) &gt; 2 then -- i.e. if artist is between ID and title										set AppleScript's text item delimiters to " "					set picTitle to (items 3 thru (count of split1) of split1) as string					set AppleScript's text item delimiters to ""										-- If there are only hyphens separating words in the title, then there will only be 3 items in split1 at this point.					if (count of split1) = 3 then ¬						set picTitle to my findAndReplaceInText(picTitle, "-", space)										tell script "Capitalizer"						changeCase of picTitle to "title"					end tell										set newTitle to result					set newFilename to (item 2 of split1 &amp; "-" &amp; item 1 of split1 &amp; "-" &amp; newTitle) as string					set newFilename to my findAndReplaceInText(newFilename, " S ", "'s ")									end if								set newFilename to my findAndReplaceInText(newFilename, "¡", "!")				set newFilename to my findAndReplaceInText(newFilename, ";", "-")				set newFilename to my findAndReplaceInText(newFilename, "/", "_")				set newFilename to my findAndReplaceInText(newFilename, "¦", "-")								set newFilename to my findAndReplaceInText(newFilename, "💓", "♡")				set newFilename to my findAndReplaceInText(newFilename, "💗", "♡")																set newFilename to my findAndReplaceInText(newFilename, "❤️", "♡")				set newFilename to my findAndReplaceInText(newFilename, "🧡", "♡")				set newFilename to my findAndReplaceInText(newFilename, "💛", "♡")				set newFilename to my findAndReplaceInText(newFilename, "💚", "♡")				set newFilename to my findAndReplaceInText(newFilename, "💙", "♡")				set newFilename to my findAndReplaceInText(newFilename, "💜", "♡")				set newFilename to my findAndReplaceInText(newFilename, "🖤", "♥︎")				set newFilename to my findAndReplaceInText(newFilename, "🤍", "♡")				set newFilename to my findAndReplaceInText(newFilename, "🤎", "♡")				set newFilename to my findAndReplaceInText(newFilename, "♥️", "♡")				set newFilename to my findAndReplaceInText(newFilename, "♠️", "♠︎")				set newFilename to my findAndReplaceInText(newFilename, "♣️", "♣︎")				set newFilename to my findAndReplaceInText(newFilename, "♦️", "♦︎")																				set name of some_file to newFilename			end tell		end repeat				display notification "The files were renamed!" with title "Service successful!"				return	on error		display notification "There was an error with renaming the file." with title "Service failed!"		return	end tryend runon splitText(theText, theDelimiter)	set AppleScript's text item delimiters to theDelimiter	set theTextItems to every text item of theText	set AppleScript's text item delimiters to ""	return theTextItemsend splitTexton findAndReplaceInText(theText, theSearchString, theReplacementString)	set AppleScript's text item delimiters to theSearchString	set theTextItems to every text item of theText	set AppleScript's text item delimiters to theReplacementString	set theText to theTextItems as string	set AppleScript's text item delimiters to ""	return theTextend findAndReplaceInText</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>IgnoresInput</key>
+				<false/>
+				<key>InputUUID</key>
+				<string>5C058488-F65D-4958-8794-D785F256FE98</string>
+				<key>Keywords</key>
+				<array>
+					<string>Run</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>3F33AC14-6BCC-4A81-A910-7CE9ABD0B2C3</string>
+				<key>UUID</key>
+				<string>C9E39391-3C8F-42EC-A263-DF1C2ED43954</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>309.000000:368.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict/>
+	<key>variables</key>
+	<array>
+		<dict>
+			<key>UUID</key>
+			<string>7489BE56-C652-42F7-A8AB-BFB48578A18C</string>
+			<key>identifier</key>
+			<string>com.apple.Automator.Variable.Storage</string>
+			<key>name</key>
+			<string>text to find</string>
+		</dict>
+		<dict>
+			<key>UUID</key>
+			<string>4CDF35FE-7080-4DE8-9218-17B9ECBE8D8D</string>
+			<key>identifier</key>
+			<string>com.apple.Automator.Variable.Storage</string>
+			<key>name</key>
+			<string>File</string>
+		</dict>
+		<dict>
+			<key>UUID</key>
+			<string>1B1CAF59-B00D-4F17-82DB-6DC473714802</string>
+			<key>identifier</key>
+			<string>com.apple.Automator.Variable.Storage</string>
+			<key>name</key>
+			<string>replacement</string>
+		</dict>
+	</array>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>applicationBundleID</key>
+		<string>com.apple.finder</string>
+		<key>applicationBundleIDsByPath</key>
+		<dict>
+			<key>/System/Library/CoreServices/Finder.app</key>
+			<string>com.apple.finder</string>
+		</dict>
+		<key>applicationPath</key>
+		<string>/System/Library/CoreServices/Finder.app</string>
+		<key>applicationPaths</key>
+		<array>
+			<string>/System/Library/CoreServices/Finder.app</string>
+		</array>
+		<key>backgroundColorName</key>
+		<string>blackColor</string>
+		<key>inputTypeIdentifier</key>
+		<string>com.apple.Automator.fileSystemObject</string>
+		<key>outputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>presentationMode</key>
+		<integer>15</integer>
+		<key>processesInput</key>
+		<integer>0</integer>
+		<key>serviceApplicationBundleID</key>
+		<string>com.apple.finder</string>
+		<key>serviceApplicationPath</key>
+		<string>/System/Library/CoreServices/Finder.app</string>
+		<key>serviceInputTypeIdentifier</key>
+		<string>com.apple.Automator.fileSystemObject</string>
+		<key>serviceOutputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>serviceProcessesInput</key>
+		<integer>0</integer>
+		<key>systemImageName</key>
+		<string>NSTouchBarDocuments</string>
+		<key>useAutomaticInputType</key>
+		<integer>0</integer>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.servicesMenu</string>
+	</dict>
+</dict>
+</plist>
