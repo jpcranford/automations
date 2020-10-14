@@ -1,4 +1,4 @@
-# JP's AppleScript Repo
+# JP's macOS Automation Repo
 A repo for all my things to make life a little easier.
 
 ## PDF Services
