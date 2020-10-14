@@ -7,9 +7,7 @@ Go to print off a receipt, then select this under the PDF menu. It'll ask for th
 
 ## Script Libraries
 ### Capitalizer
-Collection of text handlers all linked together under the `changeCase(string,caseType)` handler.
-
-Documentation can be found in its [usage](https://github.com/jpcranford/automations/blob/main/Script%20Libraries/Capitalizer%20usage.md) document.
+A handler for recapitalizing a given string. Documentation can be found in its [usage](https://github.com/jpcranford/automations/blob/main/Script%20Libraries/Capitalizer%20usage.md) document.
 
 ## Services
 ### Add text to filename
