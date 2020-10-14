@@ -38,6 +38,6 @@ tell script "Capitalizer" to changeCase of theString to "sentence"
 Credit for this one goes to [this page](https://www.howtobuildsoftware.com/index.php/how-do/bnYd/applescript-title-case-with-applescript), author unknown. Modified slightly for my purposes, but will eventually abandon.
 
 #### `changeCase_orig`
-Credit goes to a MacScripter [thread](https://macscripter.net/viewtopic.php?pid=42547) from 2005. Code written by users kai, Qwerty Denzel, and maybe more- I think I'm just now reading it after tracking it down again to credit the source, and I think I just copied the original code without reading about the bugs it had or updates to the code. Will have to investigate and update.
+Credit goes to a MacScripter [thread](https://macscripter.net/viewtopic.php?pid=42547) from 2005. Code written by users kai, Qwerty Denzel, and maybe more- I think I'm just now reading it fully for the first time after tracking it down again, and I think I just copied the original code without reading about the bugs it had or updates to the code. Will have to investigate.
 
 Works much the same as the master handler, but without the small articles support.
