@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	set input to "TESTING THIS"	choose from list {"upper", "lower", "title", "title_smallarticles", "sentence"} with prompt "Select the type of capitalization:" without multiple selections allowed	set capType to (result as string)	tell script "Capitalizer" to changeCase of input to capType	return resultend run</string>
+					<string>on run {input, parameters}	--set input to "TESTING THIS"	choose from list {"upper", "lower", "title", "title_smallarticles", "sentence"} with prompt "Select the type of capitalization:" without multiple selections allowed	set capType to (result as string)	tell script "Capitalizer" to changeCase of input to capType	return resultend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -105,7 +105,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>309.000000:488.000000</string>
+				<string>309.000000:368.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
