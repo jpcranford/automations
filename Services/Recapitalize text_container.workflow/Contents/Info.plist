@@ -12,7 +12,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Recapitalize text</string>
+				<string>Recapitalize text_container</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>
