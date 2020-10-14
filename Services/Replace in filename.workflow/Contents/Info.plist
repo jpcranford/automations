@@ -14,7 +14,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Replace text</string>
+				<string>Replace in filename</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>

@@ -151,7 +151,7 @@
 					<dict>
 						<key>tokenizedValue</key>
 						<array>
-							<string>Find:</string>
+							<string>Find (ignores case):</string>
 						</array>
 					</dict>
 					<key>requireInput</key>
@@ -179,7 +179,7 @@
 					<key>defaultAnswer</key>
 					<string></string>
 					<key>defaultMessage</key>
-					<string>Find:</string>
+					<string>Find (ignores case):</string>
 					<key>requireInput</key>
 					<true/>
 				</dict>
@@ -1282,42 +1282,42 @@
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>1B94B66B-B89F-4EE4-AB3A-5234BBED1041</key>
+		<key>0F5DD9F0-7465-47ED-8DE6-50CEDFFE5C15</key>
 		<dict>
 			<key>from</key>
 			<string>D841753B-B232-41C9-8BA1-D64B512F9C2A - D841753B-B232-41C9-8BA1-D64B512F9C2A</string>
 			<key>to</key>
 			<string>B0BE0957-AF98-4DDA-9A17-335E38C1249D - B0BE0957-AF98-4DDA-9A17-335E38C1249D</string>
 		</dict>
-		<key>A1F36F3C-0D95-47F0-A1ED-A26EBAC2C079</key>
+		<key>4BE166AE-0976-4583-824D-0A1A69775321</key>
 		<dict>
 			<key>from</key>
 			<string>FF284EFD-D737-473F-AA81-963ED69E0F0F - FF284EFD-D737-473F-AA81-963ED69E0F0F</string>
 			<key>to</key>
 			<string>D841753B-B232-41C9-8BA1-D64B512F9C2A - D841753B-B232-41C9-8BA1-D64B512F9C2A</string>
 		</dict>
-		<key>A9683C8D-8BE1-49C8-BCF0-E3A5DE14EBA2</key>
-		<dict>
-			<key>from</key>
-			<string>8FC6F384-F923-4A0C-AA37-BEC3E8327BB8 - 8FC6F384-F923-4A0C-AA37-BEC3E8327BB8</string>
-			<key>to</key>
-			<string>FF284EFD-D737-473F-AA81-963ED69E0F0F - FF284EFD-D737-473F-AA81-963ED69E0F0F</string>
-		</dict>
-		<key>DC96E58B-D2C6-4139-85B4-639AC46B2077</key>
-		<dict>
-			<key>from</key>
-			<string>C34C6492-EB1C-4290-9791-F5AD36000F20 - C34C6492-EB1C-4290-9791-F5AD36000F20</string>
-			<key>to</key>
-			<string>8FC6F384-F923-4A0C-AA37-BEC3E8327BB8 - 8FC6F384-F923-4A0C-AA37-BEC3E8327BB8</string>
-		</dict>
-		<key>EFA04055-C98D-49BB-8EE6-8AE5C1456B69</key>
+		<key>53B35F4B-FF80-4A07-B732-36F23108DF99</key>
 		<dict>
 			<key>from</key>
 			<string>6F4AA982-0157-471F-8033-2818388D7F71 - 6F4AA982-0157-471F-8033-2818388D7F71</string>
 			<key>to</key>
 			<string>C34C6492-EB1C-4290-9791-F5AD36000F20 - C34C6492-EB1C-4290-9791-F5AD36000F20</string>
 		</dict>
-		<key>F80A0BC6-1612-4D5E-9D77-1BF93FF4A999</key>
+		<key>683D364E-2C0F-4A36-8BF3-9A7E07E7C2F2</key>
+		<dict>
+			<key>from</key>
+			<string>C34C6492-EB1C-4290-9791-F5AD36000F20 - C34C6492-EB1C-4290-9791-F5AD36000F20</string>
+			<key>to</key>
+			<string>8FC6F384-F923-4A0C-AA37-BEC3E8327BB8 - 8FC6F384-F923-4A0C-AA37-BEC3E8327BB8</string>
+		</dict>
+		<key>94B78392-2443-4E91-9A4F-1996D007491E</key>
+		<dict>
+			<key>from</key>
+			<string>8FC6F384-F923-4A0C-AA37-BEC3E8327BB8 - 8FC6F384-F923-4A0C-AA37-BEC3E8327BB8</string>
+			<key>to</key>
+			<string>FF284EFD-D737-473F-AA81-963ED69E0F0F - FF284EFD-D737-473F-AA81-963ED69E0F0F</string>
+		</dict>
+		<key>D5AA25DC-0247-40DB-99F0-9D1269C59A59</key>
 		<dict>
 			<key>from</key>
 			<string>5FE078BB-7EFE-45CA-8DAC-19F14761E3F6 - 5FE078BB-7EFE-45CA-8DAC-19F14761E3F6</string>
