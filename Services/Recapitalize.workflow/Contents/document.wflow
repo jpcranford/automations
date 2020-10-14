@@ -203,7 +203,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	choose from list {"upper", "lower", "title", "title_smallarticles", "sentence"} with prompt "Select the type of capitalization:" without multiple selections allowed	set capType to (result as string)	tell script "Capitalizer" to changeCase2(input, capType)	return resultend run</string>
+					<string>on run {input, parameters}	--set input to "TESTING THIS"	choose from list {"upper", "lower", "title", "title_smallarticles", "sentence"} with prompt "Select the type of capitalization:" without multiple selections allowed	set capType to (result as string)	tell script "Capitalizer" to changeCase(input, capType)	return resultend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -340,14 +340,14 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>D37EC39B-0834-4D94-A67A-1E65F13307F5</key>
+		<key>BED439BB-2FAB-4326-8F97-36322F643522</key>
 		<dict>
 			<key>from</key>
 			<string>BC3C9F46-D56B-47FC-9D7E-CD2AFC98659D - BC3C9F46-D56B-47FC-9D7E-CD2AFC98659D</string>
 			<key>to</key>
 			<string>98E263A0-5C6F-402D-991F-C93061B1D884 - 98E263A0-5C6F-402D-991F-C93061B1D884</string>
 		</dict>
-		<key>FB7EFE80-5EC9-4389-9290-F2115E4E0925</key>
+		<key>D99DA9A5-2959-4B98-BDF8-13B7CA9291D2</key>
 		<dict>
 			<key>from</key>
 			<string>98E263A0-5C6F-402D-991F-C93061B1D884 - 98E263A0-5C6F-402D-991F-C93061B1D884</string>
