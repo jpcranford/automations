@@ -10,6 +10,9 @@ Go to print off a receipt, then select this under the PDF menu. It'll ask for th
 A handler for recapitalizing a given string. Documentation can be found in its [usage](https://github.com/jpcranford/automations/blob/main/Script%20Libraries/Capitalizer%20usage.md) document.
 
 ## Services
+### Add datetime created to filename
+Simple tool to grab the Date Created of a given file and prefix it to the filename in the format `YYYY-MM-DD HH.MM.SS`. Uses military time for the hour for convenience of sorting.
+
 ### Add text to filename
 Opens a dialog with Automator's Rename Finder Items module. A quick and dirty way to prefix or suffix a file, or even do other stuff thanks to the other options. Not really my most elegant or difficult solution, but it works.
 
@@ -17,7 +20,7 @@ Opens a dialog with Automator's Rename Finder Items module. A quick and dirty wa
 Take the selected text, recapitalize it as you choose, and replace the selection with it.
 
 Two download options are available:
-1. `Recapitalize text.workflow` - Guaranteed to be the most up-to-date as it's the one I use. Needs my Capitalizer script library installed as it calls the handlers there. 
+1. `Recapitalize text.workflow` - Guaranteed to be the most up-to-date as it's the one I use. Needs my Capitalizer script library installed as it calls the handlers there.
 2. `Recapitalize text_container.workflow` - Self-contained, no dependencies. May be out-of-date.
 
 ### Replace in filename
