@@ -9,12 +9,14 @@ If installation instructions differ from the above, it'll be noted in the small 
 <sup>*These add functionality to the PDF menu in the macOS Print dialog.*</sup>
 
 #### Save PDF to Web Receipts Folder v2
+<<<<<<< Updated upstream
 Go to print off a receipt, then select this under the PDF menu. It'll ask for the date and verify that what it got for a default filename is OK with you, then save the PDF file to `~/Documents/Web Receipts/` with the filename `YYYYMMDD <name>.pdf`.
 
 ## Script Libraries
 <sup>*If you're an AppleScript user, you might find these helpful. For instructions on how to call them in your script, see this handy [article](https://macosxautomation.com/mavericks/libraries/examples.html) or the official Apple Developer [documentation](https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_load_script.html#//apple_ref/doc/uid/TP40000983-CH227-SW2). Install by dropping the `.scpt` file in `~/Library/Script Libraries/`.*</sup>
 
 #### Capitalizer
+<<<<<<< Updated upstream
 A handler for recapitalizing a given string. Documentation can be found in its usage [document](https://github.com/jpcranford/automations/blob/main/Script%20Libraries/Capitalizer%20usage.md).
 
 ## Services / Quick Actions
