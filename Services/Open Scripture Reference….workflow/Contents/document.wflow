@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>509</string>
+	<key>AMApplicationVersion</key>
+	<string>2.10</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>Run AppleScript</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>on run {input, parameters}	--set testStringList to {"Gen. 4:7", " Eccl. 3:1,7 ", "Luke 16:1–2 (1-12)", "Moses 4:15", "D&amp;C 121:43", "Isaiah 45:19", "Alma 38:12", " Doctrine and Covenants 122:7", "Matt. 25:21 (14-30)"}	--set input to item 9 of testStringList -- LINE FOR TESTING		-- Clean up input:	set input to trimText(input, space, "both")	set input to findAndReplaceInText(input, "–", "-")	set input to findAndReplaceInText(input, "—", "-")	set book to regexSearch(input, "(.+) .+:.+")	log result	set chapter to regexSearch(input, ".+ (.+):.+")	log result		set multiplePassages to splitText(input, {"(", ")"})	if (count of multiplePassages) &gt; 1 then		set verses to item 2 of multiplePassages	else		set verses to regexSearch(input, ".+ .+:(.+)")	end if	log result		try		set firstverse to (verses as integer)	on error		splitText(verses, {",", "(", ")", "-"})		set firstverse to item 1 of result	end try		-- OLD TESTAMENT --	if book is in {"Gen.", "Genesis"} then set theURI to "/study/scriptures/ot/gen/"	if book is in {"Ex.", "Exodus"} then set theURI to "/study/scriptures/ot/ex/"	if book is in {"Lev.", "Leviticus"} then set theURI to "/study/scriptures/ot/lev/"	if book is in {"Num.", "Numbers"} then set theURI to "/study/scriptures/ot/num/"	if book is in {"Deut.", "Deuteronomy"} then set theURI to "/study/scriptures/ot/deut/"	if book is in {"Josh.", "Joshua"} then set theURI to "/study/scriptures/ot/josh/"	if book is in {"Judg.", "Judges"} then set theURI to "/study/scriptures/ot/judg/"	if book is "Ruth" then set theURI to "/study/scriptures/ot/ruth/"	if book is in {"1 Sam.", "1 Samuel"} then set theURI to "/study/scriptures/ot/1-sam/"	if book is in {"2 Sam.", "2 Samuel"} then set theURI to "/study/scriptures/ot/2-sam/"	if book is in {"1 Kgs.", "1 Kings"} then set theURI to "/study/scriptures/ot/1-kgs/"	if book is in {"2 Kgs.", "2 Kings"} then set theURI to "/study/scriptures/ot/2-kgs/"	if book is in {"1 Chr.", "1 Chronicles"} then set theURI to "/study/scriptures/ot/1-chr/"	if book is in {"2 Chr.", "2 Chronicles"} then set theURI to "/study/scriptures/ot/2-chr/"	if book is "Ezra" then set theURI to "/study/scriptures/ot/ezra/"	if book is in {"Neh.", "Nehemiah"} then set theURI to "/study/scriptures/ot/neh/"	if book is in {"Esth.", "Esther"} then set theURI to "/study/scriptures/ot/esth/"	if book is "Job" then set theURI to "/study/scriptures/ot/job/"	if book is in {"Ps.", "Psalms"} then set theURI to "/study/scriptures/ot/ps/"	if book is in {"Prov.", "Proverbs"} then set theURI to "/study/scriptures/ot/prov/"	if book is in {"Eccl.", "Ecclesiastes"} then set theURI to "/study/scriptures/ot/eccl/"	if book is in {"Song", "Song of Solomon"} then set theURI to "/study/scriptures/ot/song/"	if book is in {"Isa.", "Isaiah"} then set theURI to "/study/scriptures/ot/isa/"	if book is in {"Jer.", "Jeremiah"} then set theURI to "/study/scriptures/ot/jer/"	if book is in {"Lam.", "Lamentations"} then set theURI to "/study/scriptures/ot/lam/"	if book is in {"Ezek.", "Ezekiel"} then set theURI to "/study/scriptures/ot/ezek/"	if book is in {"Dan.", "Daniel"} then set theURI to "/study/scriptures/ot/dan/"	if book is "Hosea" then set theURI to "/study/scriptures/ot/hosea/"	if book is "Joel" then set theURI to "/study/scriptures/ot/joel/"	if book is "Amos" then set theURI to "/study/scriptures/ot/amos/"	if book is in {"Obad.", "Obadiah"} then set theURI to "/study/scriptures/ot/obad/"	if book is "Jonah" then set theURI to "/study/scriptures/ot/jonah/"	if book is "Micah" then set theURI to "/study/scriptures/ot/micah/"	if book is "Nahum" then set theURI to "/study/scriptures/ot/nahum/"	if book is in {"Hab.", "Habakkuk"} then set theURI to "/study/scriptures/ot/hab/"	if book is in {"Zeph.", "Zephaniah"} then set theURI to "/study/scriptures/ot/zeph/"	if book is in {"Hag.", "Haggai"} then set theURI to "/study/scriptures/ot/hag/"	if book is in {"Zech.", "Zechariah"} then set theURI to "/study/scriptures/ot/zech/"	if book is in {"Mal.", "Malachi"} then set theURI to "/study/scriptures/ot/mal/"		-- NEW TESTAMENT --	if book is in {"Matt.", "Matthew"} then set theURI to "/study/scriptures/nt/matt/"	if book is "Mark" then set theURI to "/study/scriptures/nt/mark/"	if book is "Luke" then set theURI to "/study/scriptures/nt/luke/"	if book is "John" then set theURI to "/study/scriptures/nt/john/"	if book is "Acts" then set theURI to "/study/scriptures/nt/acts/"	if book is in {"Rom.", "Romans"} then set theURI to "/study/scriptures/nt/rom/"	if book is in {"1 Cor.", "1 Corinthians"} then set theURI to "/study/scriptures/nt/1-cor/"	if book is in {"2 Cor.", "2 Corinthians"} then set theURI to "/study/scriptures/nt/2-cor/"	if book is in {"Gal.", "Galatians"} then set theURI to "/study/scriptures/nt/gal/"	if book is in {"Eph.", "Ephesians"} then set theURI to "/study/scriptures/nt/eph/"	if book is in {"Philip.", "Philippians"} then set theURI to "/study/scriptures/nt/philip/"	if book is in {"Col.", "Colossians"} then set theURI to "/study/scriptures/nt/col/"	if book is in {"1 Thes.", "1 Thessalonians"} then set theURI to "/study/scriptures/nt/1-thes/"	if book is in {"2 Thes.", "2 Thessalonians"} then set theURI to "/study/scriptures/nt/2-thes/"	if book is in {"1 Tim.", "1 Timothy"} then set theURI to "/study/scriptures/nt/1-tim/"	if book is in {"2 Tim.", "2 Timothy"} then set theURI to "/study/scriptures/nt/2-tim/"	if book is "Titus" then set theURI to "/study/scriptures/nt/titus/"	if book is in {"Philem.", "Philemon"} then set theURI to "/study/scriptures/nt/philem/"	if book is in {"Heb.", "Hebrews"} then set theURI to "/study/scriptures/nt/heb/"	if book is "James" then set theURI to "/study/scriptures/nt/james/"	if book is in {"1 Pet.", "1 Peter"} then set theURI to "/study/scriptures/nt/1-pet/"	if book is in {"2 Pet.", "2 Peter"} then set theURI to "/study/scriptures/nt/2-pet/"	if book is in {"1 Jn.", "1 John"} then set theURI to "/study/scriptures/nt/1-jn/"	if book is in {"2 Jn.", "2 John"} then set theURI to "/study/scriptures/nt/2-jn/"	if book is in {"3 Jn.", "3 John"} then set theURI to "/study/scriptures/nt/3-jn/"	if book is "Jude" then set theURI to "/study/scriptures/nt/jude/"	if book is in {"Rev.", "Revelation"} then set theURI to "/study/scriptures/nt/rev/"		-- BOOK OF MORMON --	if book is in {"1 Ne.", "1 Nephi"} then set theURI to "/study/scriptures/bofm/1-ne/"	if book is in {"2 Ne.", "2 Nephi"} then set theURI to "/study/scriptures/bofm/2-ne/"	if book is "Jacob" then set theURI to "/study/scriptures/bofm/jacob/"	if book is "Enos" then set theURI to "/study/scriptures/bofm/enos/"	if book is "Jarom" then set theURI to "/study/scriptures/bofm/jarom/"	if book is "Omni" then set theURI to "/study/scriptures/bofm/omni/"	if book is in {"W of M", "Words of Mormon"} then set theURI to "/study/scriptures/bofm/w-of-m/"	if book is "Mosiah" then set theURI to "/study/scriptures/bofm/mosiah/"	if book is "Alma" then set theURI to "/study/scriptures/bofm/alma/"	if book is in {"Hel.", "Helaman"} then set theURI to "/study/scriptures/bofm/hel/"	if book is in {"3 Ne.", "3 Nephi"} then set theURI to "/study/scriptures/bofm/3-ne/"	if book is in {"4 Ne.", "4 Nephi"} then set theURI to "/study/scriptures/bofm/4-ne/"	if book is in {"Morm.", "Mormon"} then set theURI to "/study/scriptures/bofm/morm/"	if book is "Ether" then set theURI to "/study/scriptures/bofm/ether/"	if book is in {"Moro.", "Moroni"} then set theURI to "/study/scriptures/bofm/moro/"		-- MODERN STUFF --	if book is in {"D&amp;C", "Doctrine and Covenants"} then set theURI to "/study/scriptures/dc-testament/dc/"	if book is in {"OD", "Official Declaration"} then set theURI to "/study/scriptures/dc-testament/od/"	if book is "Moses" then set theURI to "/study/scriptures/pgp/moses/"	if book is in {"Abr.", "Abraham"} then set theURI to "/study/scriptures/pgp/abr/"	if book is in {"JS-M", "Joseph Smith-Matthew"} then set theURI to "/study/scriptures/pgp/js-m/"	if book is in {"JS-H", "Joseph Smith-History"} then set theURI to "/study/scriptures/pgp/js-h/"	if book is in {"A of F", "Articles of Faith"} then set theURI to "/study/scriptures/pgp/a-of-f/"		set theURI to theURI &amp; chapter &amp; "." &amp; verses &amp; "#" &amp; firstverse		try -- try to open the link in Gospel Library first…		get "gospellibrary:/" &amp; theURI		do shell script "open " &amp; result	on error -- …but if it isn't installed then open online version		--return "https://www.churchofjesuschrist.org" &amp; theURI		open location "https://www.churchofjesuschrist.org" &amp; theURI	end tryend runon splitText(theText, theDelimiter)	set AppleScript's text item delimiters to theDelimiter	set theTextItems to every text item of theText	set AppleScript's text item delimiters to ""	return theTextItemsend splitTexton findAndReplaceInText(theText, theSearchString, theReplacementString)	set AppleScript's text item delimiters to theSearchString	set theTextItems to every text item of theText	set AppleScript's text item delimiters to theReplacementString	set theText to theTextItems as string	set AppleScript's text item delimiters to ""	return theTextend findAndReplaceInTexton trimText(theText, theCharactersToTrim, theTrimDirection)	set theTrimLength to length of theCharactersToTrim	if theTrimDirection is in {"beginning", "both"} then		repeat while theText begins with theCharactersToTrim			try				set theText to characters (theTrimLength + 1) thru -1 of theText as string			on error				-- text contains nothing but trim characters				return ""			end try		end repeat	end if	if theTrimDirection is in {"end", "both"} then		repeat while theText ends with theCharactersToTrim			try				set theText to characters 1 thru -(theTrimLength + 1) of theText as string			on error				-- text contains nothing but trim characters				return ""			end try		end repeat	end if	return theTextend trimTextto regexSearch(theString, thePattern)	if thePattern contains "\\d" then		return "Error! regexSearch does not support extended regex features at this time."	else if thePattern contains "\\w" then		return "Error! regexSearch does not support extended regex features at this time."	end if	do shell script "sed -r 's/" &amp; thePattern &amp; "/" &amp; "\\1/' &lt;&lt;&lt; " &amp; quoted form of theStringend regexSearch</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>F14F7D9C-693B-43DE-99F8-896D00F9FF6A</string>
+				<key>Keywords</key>
+				<array>
+					<string>Run</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>C13C67DD-F70D-44C7-A752-0D63EF11278D</string>
+				<key>UUID</key>
+				<string>DE5F9704-9F4D-4760-B428-10303ACDB1F9</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<integer>1</integer>
+				<key>location</key>
+				<string>291.500000:368.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict/>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>applicationBundleIDsByPath</key>
+		<dict/>
+		<key>applicationPaths</key>
+		<array/>
+		<key>inputTypeIdentifier</key>
+		<string>com.apple.Automator.text</string>
+		<key>outputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>presentationMode</key>
+		<integer>11</integer>
+		<key>processesInput</key>
+		<integer>0</integer>
+		<key>serviceInputTypeIdentifier</key>
+		<string>com.apple.Automator.text</string>
+		<key>serviceOutputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>serviceProcessesInput</key>
+		<integer>0</integer>
+		<key>systemImageName</key>
+		<string>NSTouchBarBookmarks</string>
+		<key>useAutomaticInputType</key>
+		<integer>0</integer>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.servicesMenu</string>
+	</dict>
+</dict>
+</plist>
