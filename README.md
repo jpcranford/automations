@@ -1,4 +1,4 @@
-A repo for all the things I wrote/stole to make my life a little easier. Enjoy.
+A repo for all the things I wrote/stole-and-rewrote to make my life a little easier/faster. Enjoy.
 
 Most of these are just `.zip` files containing Automator workflows, in which case just download and extract the appropriate `.zip` file, then open the file inside and macOS will take it from there. If installation instructions differ, it'll be noted in the folder's readme.
 
