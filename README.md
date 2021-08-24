@@ -17,6 +17,19 @@ Ever find yourself needing to organize your digital receipts? Well here's the to
 #### Capitalizer
 A couple of handlers for recapitalizing a given string. Documentation can be found in its usage [document](https://github.com/jpcranford/automations/blob/main/Script%20Libraries/Capitalizer%20usage.md).
 
+#### Regex Search
+A simple handler for using `sed` to find text, given a source string. Known limitations:
+* Extended/modern regex features aren't supported yet. (Haven't figured out how to do that yet.)
+* You can only specify one group in the search pattern. It might break if you do more. (And tbh I'm okay with that; calling the handler multiple times on the same string.)
+
+Handler call example (included in the file):
+```applescript
+set theString to "Ezekiel 25:17"
+set regexPattern to ".* (.+):.*"
+regexSearch(theString, regexPattern)
+--> Result: 25
+```
+
 ## Services / Quick Actions
 <sup>*Handy dandy workflows. These add buttons to Finder, Touch Bar, and right-click menus, passing whatever is selected to its Automator workflow.*</sup>
 
