@@ -26,6 +26,11 @@ A simple tool to grab the Date Created of a given file and prefix it to the file
 #### Add text to filename
 Opens a dialog with Automator's Rename Finder Items module. A quick and dirty way to prefix or suffix a file, or even do other stuff thanks to the other options. Not really my most elegant or difficult solution, but it works.
 
+#### Open Scripture Reference…
+Not many people will find this useful or interesting, but it allows you to open a highlighted scripture reference on ChurchOfJesusChrist.org.
+
+Well, technically it tries to open the Gospel Library app first, but that's more for when the AppleScript gets ported over to Shortcuts in macOS Monterey.
+
 #### Recapitalize text
 Takes the selected text, recapitalizes it as you choose, and replaces the selection with it.
 
